@@ -1,4 +1,5 @@
 [![build](https://github.com/krisfromhbk/auto-backend-trainee-assignment/workflows/build/badge.svg)](https://github.com/krisfromhbk/auto-backend-trainee-assignment/actions?query=workflow%3Abuild)
+[![Go Report Card](https://goreportcard.com/badge/github.com/krisfromhbk/auto-backend-trainee-assignment)](https://goreportcard.com/report/github.com/krisfromhbk/auto-backend-trainee-assignment)
 [![codecov](https://codecov.io/gh/krisfromhbk/auto-backend-trainee-assignment/branch/master/graph/badge.svg)](https://codecov.io/gh/krisfromhbk/auto-backend-trainee-assignment)
 
 # Plans
