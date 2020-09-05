@@ -17,12 +17,13 @@ failpoint-disable: tools/bin/failpoint-ctl
 # Restoring gofail failpoints...
 	@$(FAILPOINT_DISABLE)
 
-build:
+build: failpoint-disable
 	go build cmd/server/main.go
 .PHONY: build
 
-test:
+test: failpoint-enable
 	go test -v -failfast -coverprofile=coverage.txt -covermode=atomic $(SOURCE_FILES) -timeout=2m
+	@$(FAILPOINT_DISABLE)
 .PHONY: test
 
 cover: test
