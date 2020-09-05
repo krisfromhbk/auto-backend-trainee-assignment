@@ -1,3 +1,6 @@
+[![build](https://github.com/krisfromhbk/auto-backend-trainee-assignment/workflows/build/badge.svg)](https://github.com/krisfromhbk/auto-backend-trainee-assignment/actions?query=workflow%3Abuild)
+[![codecov](https://codecov.io/gh/krisfromhbk/auto-backend-trainee-assignment/branch/master/graph/badge.svg)](https://codecov.io/gh/krisfromhbk/auto-backend-trainee-assignment)
+
 # Plans
 - [x] Setup [dgraph-io/badger](https://github.com/dgraph-io/badger) as database.
 - [x] Add structured logging with [uber-go/zap](https://github.com/uber-go/zap).
