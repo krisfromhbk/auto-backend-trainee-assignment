@@ -67,6 +67,7 @@ func TestServerSwitch(t *testing.T) {
 		saveReader := bufio.NewReader(saveUrlConn)
 		var saveRes fasthttp.Response
 		err = saveRes.Read(saveReader)
+		require.NoError(t, err)
 
 		require.Equal(t, fasthttp.StatusMethodNotAllowed, saveRes.StatusCode())
 
@@ -82,6 +83,7 @@ func TestServerSwitch(t *testing.T) {
 		getReader := bufio.NewReader(getUrlConn)
 		var getRes fasthttp.Response
 		err = getRes.Read(getReader)
+		require.NoError(t, err)
 
 		require.Equal(t, fasthttp.StatusNotFound, getRes.StatusCode())
 

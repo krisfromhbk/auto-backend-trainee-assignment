@@ -77,6 +77,7 @@ func New(logger *zap.Logger, path string) (*Storage, error) {
 	}, err
 }
 
+// Close releases sequence and closes database
 func (s *Storage) Close() error {
 	s.logger.Info("closing storage")
 	err := s.seq.Release()
