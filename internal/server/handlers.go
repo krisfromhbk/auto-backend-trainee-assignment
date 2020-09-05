@@ -76,8 +76,7 @@ func (h *handler) getURL(ctx *fasthttp.RequestCtx) {
 		return
 	}
 
-	ctx.SetStatusCode(fasthttp.StatusMovedPermanently)
-	ctx.Response.Header.Set("Location", url)
+	ctx.Redirect(url, fasthttp.StatusMovedPermanently)
 
 	logger.Debug("Finishing request")
 
