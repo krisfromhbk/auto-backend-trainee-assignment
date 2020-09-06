@@ -3,9 +3,10 @@ package main
 import (
 	"auto/internal/server"
 	"auto/internal/storage"
-	"github.com/caarlos0/env/v6"
+	"errors"
 	"go.uber.org/zap"
 	"log"
+	"os"
 )
 
 func main() {
@@ -17,17 +18,21 @@ func main() {
 
 	logger.Info("Application is starting")
 
+	config, err := newConfig(logger)
+	if err != nil {
+		if errors.Is(err, helpErr) {
+			logger.Info("-help invoked, exiting")
+			os.Exit(0)
+		}
+		logger.Fatal("can not create config")
+	}
+
 	store, err := storage.New(logger, "db")
 	if err != nil {
 		log.Fatalf("Error creating store: %v", err)
 	}
 
-	srvCfg := server.EnvConfig{}
-	if err := env.Parse(&srvCfg); err != nil {
-		logger.Fatal("parsing server environment config", zap.Error(err))
-	}
-
-	srv, err := server.New(logger, store, server.WithEnvConfig(srvCfg))
+	srv, err := server.New(logger, store, server.WithConfig(*config.http))
 	if err != nil {
 		logger.Fatal("server.New", zap.Error(err))
 	}

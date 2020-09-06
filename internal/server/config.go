@@ -15,14 +15,14 @@ type config struct {
 	addr string
 }
 
-// EnvConfig defines fields used for parsing from environment variables
-type EnvConfig struct {
+// Config defines fields (with defaults) used for configuring http server and parsing them from environment variables
+type Config struct {
 	Host string `env:"HOST" envDefault:"0.0.0.0"`
 	Port uint16 `env:"PORT" envDefault:"9000"`
 }
 
-// WithEnvConfig enables processing exported EnvConfig struct to acts as a source of config parameters for Server
-func WithEnvConfig(cfg EnvConfig) Option {
+// WithConfig enables processing exported Config struct to acts as a source of config parameters for Server
+func WithConfig(cfg Config) Option {
 	return optionFunc(func(c *config) {
 		c.addr = cfg.Host + ":" + strconv.FormatUint(uint64(cfg.Port), 10)
 	})

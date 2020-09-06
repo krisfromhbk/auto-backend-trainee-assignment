@@ -25,7 +25,7 @@ func TestWithEnvConfig(t *testing.T) {
 		require.NoError(t, err)
 	}()
 
-	srvCfg := EnvConfig{}
+	srvCfg := Config{}
 	err = env.Parse(&srvCfg)
 	require.NoError(t, err)
 
@@ -42,7 +42,7 @@ func TestWithEnvConfig(t *testing.T) {
 		require.NoError(t, err)
 	}()
 
-	srv, err := New(logger, store, WithEnvConfig(srvCfg))
+	srv, err := New(logger, store, WithConfig(srvCfg))
 	require.NoError(t, err)
 
 	require.Equal(t, "1.2.3.4:43210", srv.addr)

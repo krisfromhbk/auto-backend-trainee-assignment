@@ -9,10 +9,10 @@
 - [x] Rewrite built-in http server with [valyala/fasthttp](https://github.com/valyala/fasthttp).
 - [x] Implement [failpoints](https://github.com/pingcap/failpoint) support for testing.
 - [x] Add basic make targets to use failpoints.
-- [ ] Add command-line flags parsing.
+- [x] Add command-line flags parsing.
 - [ ] Set URL validation.
 - [ ] Add custom short links support.
-- [ ] Setup [Github Actions](https://docs.github.com/en/actions) workflows.
+- [x] Setup [Github Actions](https://docs.github.com/en/actions) workflows.
 - [ ] Prepare for load testing with [Yandex.Tank](https://github.com/yandex/yandex-tank)
 
 # References
