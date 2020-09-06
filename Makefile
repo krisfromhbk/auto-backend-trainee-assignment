@@ -18,7 +18,7 @@ failpoint-disable: tools/bin/failpoint-ctl
 	@$(FAILPOINT_DISABLE)
 
 build: failpoint-disable
-	go build cmd/server/main.go
+	go build -o avito-auto cmd/server/*.go
 .PHONY: build
 
 test: failpoint-enable
