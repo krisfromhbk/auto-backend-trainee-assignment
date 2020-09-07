@@ -31,7 +31,7 @@ COPY . .
 # Build the executable to `/app`. Mark the build as statically linked.
 RUN CGO_ENABLED=0 go build \
     -installsuffix 'static' \
-    -o /app cmd/server/main.go
+    -o /app cmd/server/*.go
 
 FROM gcr.io/distroless/base
 
