@@ -3,6 +3,8 @@ name: build
 on:
   push:
     paths-ignore:
+      - '.github/workflows/docker.yml'
+      - '.github/workflows/load-test.yml'
       - 'README.md'
       - '.codecov.yml'
       - 'LICENSE.md'
