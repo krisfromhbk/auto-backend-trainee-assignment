@@ -34,6 +34,7 @@ jobs:
         run: |
           cat packet_net.py
           pip3 list
+          ansible --version
 
       - name: Get inventory from packet
         run: PACKET_API_TOKEN=${{ secrets.PACKET_API_TOKEN }} python3 packet_net.py --list
