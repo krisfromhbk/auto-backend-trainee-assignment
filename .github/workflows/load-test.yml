@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
-          run: pip install packet-python
+        run: pip install packet-python
 
       - name: Retrieve dynamic inventory script
         run: |
