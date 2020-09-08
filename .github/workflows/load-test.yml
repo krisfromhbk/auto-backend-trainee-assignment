@@ -7,6 +7,9 @@ jobs:
   load-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Install dependencies
+          run: pip install packet-python
+
       - name: Retrieve dynamic inventory script
         run: |
           wget https://github.com/ansible/ansible/raw/stable-2.9/contrib/inventory/packet_net.py
