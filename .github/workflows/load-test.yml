@@ -30,5 +30,10 @@ jobs:
           sed -i 's/#!\/usr\/bin\/env python/#!\/usr\/bin\/env python3/' packet_net.py
           wget https://github.com/ansible/ansible/raw/stable-2.9/contrib/inventory/packet_net.ini
 
+      - name: Debug
+        run: |
+          cat packet_net.py
+          pip3 list
+
       - name: Get inventory from packet
         run: PACKET_API_TOKEN=${{ secrets.PACKET_API_TOKEN }} python3 packet_net.py --list
