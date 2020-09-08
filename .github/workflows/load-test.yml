@@ -17,11 +17,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install packet-python
+          python -m pip3 install --upgrade pip3
+          pip3 install packet-python
 
       - name: Install Ansible
-        run: sudo pip install ansible
+        run: sudo pip3 install ansible
 
       - name: Retrieve dynamic inventory script
         run: |
