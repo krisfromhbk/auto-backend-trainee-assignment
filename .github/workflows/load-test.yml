@@ -27,6 +27,7 @@ jobs:
       - name: Retrieve dynamic inventory script
         run: |
           wget https://github.com/ansible/ansible/raw/stable-2.9/contrib/inventory/packet_net.py
+          sed -i 's/#!\/usr\/bin\/env python/#!\/usr\/bin\/env python3/' packet_net.py
           wget https://github.com/ansible/ansible/raw/stable-2.9/contrib/inventory/packet_net.ini
 
       - name: Get inventory from packet
