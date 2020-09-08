@@ -1,0 +1,37 @@
+name: load-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  load-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '2.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install packet-python
+
+      - name: Install Ansible
+        run: |
+          apt update
+          apt install software-properties-common
+          apt-add-repository --yes --update ppa:ansible/ansible
+          apt install ansible
+
+      - name: Retrieve dynamic inventory script
+        run: |
+          wget https://github.com/ansible/ansible/raw/stable-2.9/contrib/inventory/packet_net.py
+          chmod +x packet_net.py
+          wget https://github.com/ansible/ansible/raw/stable-2.9/contrib/inventory/packet_net.ini
+
+      - name: Get inventory from packet
+        run: PACKET_API_TOKEN=${{ secrets.PACKET_API_TOKEN }} ./packet_net.py --list
