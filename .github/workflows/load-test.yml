@@ -21,7 +21,7 @@ jobs:
           pip3 install packet-python
 
       - name: Install Ansible
-        run: sudo pip3 install ansible
+        run: pip3 install ansible
 
       - name: Retrieve dynamic inventory script
         run: |
