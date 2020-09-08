@@ -21,11 +21,7 @@ jobs:
           pip install packet-python
 
       - name: Install Ansible
-        run: |
-          sudo apt update
-          sudo apt install software-properties-common
-          sudo apt-add-repository --yes --update ppa:ansible/ansible
-          sudo apt install ansible
+        run: sudo pip install ansible
 
       - name: Retrieve dynamic inventory script
         run: |
