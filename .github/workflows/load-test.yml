@@ -7,6 +7,9 @@ jobs:
   load-test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        with: actions/checkout@v2
+
       - name: Install dependencies
         run: pip install packet-python
 
@@ -15,6 +18,9 @@ jobs:
           wget https://github.com/ansible/ansible/raw/stable-2.9/contrib/inventory/packet_net.py
           chmod +x packet_net.py
           wget https://github.com/ansible/ansible/raw/stable-2.9/contrib/inventory/packet_net.ini
+
+      - name: Create device
+        run: ansible-playbook scripts/ansible/playbook_create.yml
 
       - name: Get inventory from packet
         run: PACKET_API_TOKEN=${{ secrets.PACKET_API_TOKEN }} ./packet_net.py --list

@@ -1,0 +1,14 @@
+- name: Create load test device
+  hosts: localhost
+  tasks:
+
+    - packet_sshkey:
+        key_file: ./id_rsa.pub
+        label: target key
+
+    - packet_device:
+        project_id: {{ lookup('env', 'PACKET_PROJECT_ID' }}
+        hostnames: load-target
+        operating_system: ubuntu_18_04
+        plan: c3.small.x86
+        facility: sjc1
