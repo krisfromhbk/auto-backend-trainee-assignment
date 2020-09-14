@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  url-shortener:
+    image: krisfromhbk/avito-auto:latest
+    container_name: url-shortener
+    ports:
+    - "9000:9000"
+    volumes:
+    - ./data:/data
