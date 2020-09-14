@@ -41,4 +41,6 @@ COPY --from=builder /app /app
 
 USER nobody:nobody
 
+RUN mkdir /data
+
 ENTRYPOINT ["/app"]

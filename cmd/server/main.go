@@ -27,7 +27,7 @@ func main() {
 		logger.Fatal("can not create config")
 	}
 
-	store, err := storage.New(logger, "db")
+	store, err := storage.New(logger, "/data/db")
 	if err != nil {
 		log.Fatalf("Error creating store: %v", err)
 	}
