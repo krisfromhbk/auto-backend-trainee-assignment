@@ -9,6 +9,7 @@ on:
       - '.codecov.yml'
       - 'LICENSE.md'
       - 'build/package/Dockerfile'
+      - 'deployments/docker-compose.yml
       - '.dockerignore'
       - '.gitignore'
 
