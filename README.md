@@ -5,6 +5,11 @@
 # URL Shortener
 Yet another service creating short urls. Made with love for Avito Auto team.
 
+## Important notes
+* Despite the 100% code coverage this project must be checked for unexpected panics. Current 100% coverage guarantees that any error that can be returned during disk and network IO operation or exposed by a lib author will be handled.
+
+* master branch will remain closed for updates until 09.29.2020 to simplify the process of checking by Avito Auto team. For the latest available updates please checkout [develop](https://github.com/krisfromhbk/auto-backend-trainee-assignment/tree/develop) branch.
+
 ## Run locally using Docker
 The Docker image for [url-shortener](https://hub.docker.com/repository/docker/krisfromhbk/avito-auto) is available on DockerHub.
 
