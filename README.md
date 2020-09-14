@@ -22,7 +22,7 @@ The Docker image for [url-shortener](https://hub.docker.com/repository/docker/kr
    docker-compose up
    ```
 ## API reference
-Service container exposes its API on 9000 port. It can be changed with environment variable `PORT` specified in [docker-compose.yaml](deployments/docker-compose.yml)
+Service container exposes its API on 9000 port. It can be changed with environment variable `PORT` specified in [docker-compose.yaml](deployments/docker-compose.yml) manually.
 
 ### Create short url
 
@@ -41,7 +41,7 @@ Response: 'short' - generated short url path (e.g. jnegYbw) or HTTP error code w
 curl http://localhost:9000/jnegYbw
 ```
 
-Response: HTTP 301 redirect with location header set to source url or HTTP error code with description..
+Response: HTTP 301 redirect with location header set to source url or HTTP error code with description.
 
 ## Plans
 - [x] Setup [dgraph-io/badger](https://github.com/dgraph-io/badger) as database.
