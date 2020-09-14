@@ -14,6 +14,10 @@ RUN mkdir /user && \
     echo 'nobody:x:65534:65534:nobody:/:' > /user/passwd && \
     echo 'nobody:x:65534:' > /user/group
 
+# Create directory for database files and set permissions
+RUN mkdir /data && \
+    chown -R nobody:nobody /data
+
 # Git is required for fetching the dependencies.
 RUN apk add --no-cache git
 
@@ -37,10 +41,9 @@ FROM gcr.io/distroless/base
 
 COPY --from=builder /user/group /user/passwd /etc/
 
-COPY --from=builder /app /app
+COPY --from=builder /data /data
 
-RUN mkdir /data && \
-    chown -R nobody:nobody /data
+COPY --from=builder /app /app
 
 USER nobody:nobody
 
