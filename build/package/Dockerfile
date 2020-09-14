@@ -39,8 +39,9 @@ COPY --from=builder /user/group /user/passwd /etc/
 
 COPY --from=builder /app /app
 
-USER nobody:nobody
+RUN mkdir /data && \
+    chown -R nobody:nobody /data
 
-RUN mkdir /data
+USER nobody:nobody
 
 ENTRYPOINT ["/app"]
