@@ -1,7 +1,6 @@
 name: build
 
 on:
-  workflow_dispatch:
   push:
     paths-ignore:
       - '.github/workflows/docker.yml'
@@ -10,7 +9,7 @@ on:
       - '.codecov.yml'
       - 'LICENSE.md'
       - 'build/package/Dockerfile'
-      - 'deployments/docker-compose.yml
+      - 'deployments/docker-compose.yml'
       - '.dockerignore'
       - '.gitignore'
   workflow_dispatch:
