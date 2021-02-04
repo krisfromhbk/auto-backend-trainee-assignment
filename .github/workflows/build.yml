@@ -12,6 +12,7 @@ on:
       - 'deployments/docker-compose.yml
       - '.dockerignore'
       - '.gitignore'
+  workflow_dispatch:
 
 jobs:
   build:
